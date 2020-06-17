@@ -23,7 +23,7 @@ const credentials: Types.Credentials = {
   // start cleaning the area
   vacBot.cleanArea(area);
 
-  // return to charging doc after 20 seconds
+  // return to charging dock after 20 seconds
   setTimeout(() => vacBot.charge(), 20000);
 
   // disconnect from vac bot after 25 seconds
