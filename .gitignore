@@ -5,6 +5,7 @@
 /build
 /tmp
 /out-tsc
+/examples/local.ts
 
 # dependencies
 .node_modules

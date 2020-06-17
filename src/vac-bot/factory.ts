@@ -14,19 +14,19 @@ export class VacBotFactory {
     const client: Types.ApiClient = new Api(deviceId, cred.country, cred.continent);
 
     await client.connect(cred.accountId, Api.md5(cred.password));
-    const VacMetas: Types.VacMeta[] = await client.devices();
-    const VacMeta = this.searchVacMeta(VacMetas, search);
+    const vacMetas: Types.VacMeta[] = await client.devices();
+    const vacMeta = this.searchVacMeta(vacMetas, search);
 
-    if (!VacMeta) {
+    if (!vacMeta) {
       return null;
     }
 
-    const VacClient = await this.getVacBotAdapter(client, VacMeta, cred.continent);
-    return new VacBot(VacClient, this.timeoutMs);
+    const adapter = await this.getVacBotAdapter(client, vacMeta, cred.continent);
+    return new VacBot(adapter, this.timeoutMs);
   }
 
-  private searchVacMeta(VacMetas: Types.VacMeta[], search: Types.VacMeta): Types.VacMeta {
-    const filtered = filterObjects(VacMetas, search);
+  private searchVacMeta(vacMetas: Types.VacMeta[], search: Types.VacMeta): Types.VacMeta {
+    const filtered = filterObjects(vacMetas, search);
     return filtered.length ? filtered[0]: null;
   }
 
