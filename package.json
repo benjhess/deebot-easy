@@ -4,7 +4,7 @@
   "description": "Library for easy communication with ecovacs deebot models",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "ts-node ./examples/play-sound.ts",
     "transpile": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
